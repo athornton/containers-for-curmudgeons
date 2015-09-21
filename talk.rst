@@ -527,9 +527,9 @@ All anyone cares about is the service behind the endpoint, and for that only:
 
  * Digging out the supporting data should be a rare event and it's OK not to cater to it.
 
- .. [*] If you're on your own hardware, and you're not virtualizing...wait, why are you not...oh, never mind.  Let's go with, this *should* be true.
+.. [*] If you're on your own hardware, and you're not virtualizing...wait, why are you not...oh, never mind.  Let's go with, this *should* be true.
 
- .. [*] **FINE** you can have Green, Yellow, and Red, if you must: OK, Not *Really* OK, and *Really* Not OK.
+.. [*] **FINE** you can have Green, Yellow, and Red, if you must: OK, Not *Really* OK, and *Really* Not OK.
 
 ----
 
@@ -927,7 +927,7 @@ The motivation is pretty simple.
 
 * Need to be able to validate connections our components make to each other.
 
- * Mutual-auth SSL seems like the right tool for that.
+ * Mutual-auth TLS seems like the right tool for that.
 
  * If we burn the CA signing passphrase as soon as we're done with it, it's pretty secure.
 
@@ -1089,7 +1089,7 @@ Talking to pretty much anything else has to be treated as an off-box call.
 
 * To some degree, "it depends" :raw-role:`&mdash;` if you've installed your app atop a fairly full distribution, than you can still shell out to external programs or pipe through sed or whatever if you really want to.
 
-* People will sneer at you for running a "fat container," but whatever.  They're not the boss of you!  (unless they are)
+ * People will sneer at you for running a "fat container," but whatever.  They're not the boss of you!  (unless they are)
 
 * These days, RPC is typically a message sent over https, for most things.  Sun RPC is, thankfully, very seldom seen anymore.
 
