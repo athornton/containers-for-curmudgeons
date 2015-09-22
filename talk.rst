@@ -812,17 +812,17 @@ Pick a primary language you're working in.  It's not necessary that all your com
 
 Choose things with Open Source licenses.  Maybe not for the obvious reason.
 
-* Dependency on a commercial component instantly means our reach is restricted to that component's customers.
+* Dependency on a commercial component instantly means your reach is restricted to that component's customers.
 
- * If we Open Source our stuff, we're still just an add-on to their thing.
+ * Even if you Open Source your stuff, you're still just an add-on to their thing.
 
- * Then we have to deal with either telling the customer how to configure the thing, or we have to sell a prebundled thing, and ugh.
+ * Then you have to deal with either telling the customer how to configure the thing, or you have to sell a prebundled thing, and ugh.
 
-* The bother and hassle of dealing with license management, especially inside a containerized environment, makes that a nonstarter.
+* The bother and hassle of dealing with license management, especially inside a containerized environment, makes that a nonstarter, especially when it needs its own black-box license manager node.
 
-* A containerized application is very likely to have highly elastic sizing :raw-role:`&mdash;` if it isn't Open Source, either you have a difficult licensing model, or you pay way, way too much.
+* A containerized application is very likely to have highly elastic sizing :raw-role:`&mdash;` if it isn't Open Source, either you will have a complicated, difficult-to-comprehend licensing model, or you will pay way, way too much.  Or both.
 
-* Some people believe Larry Ellison has enough yachts already.
+* There are some people, and I'm not naming any names here, who believe Larry Ellison has enough yachts already.
 
 :data-y: r0
 
@@ -842,6 +842,8 @@ Remember back in the old days, before Perl, when if you wanted to do something y
 I find that the gap between, "I have something that is syntactically valid," and "I have a correct program," is consistently *way* smaller in Go than in anything else I've used, and I've used a lot of languages.
 
 Static linking is really nice in a containerized environment, since you don't end up with the dozens and dozens of supporting packages you would need for an application in, say, Python.
+
+ * This does require that container rebuilds and redeployments are actually trivial to perform, of course.
 
 (Yes, I realize the cool kids are on to Rust now; I haven't really wrapped my head around it but it feels like it puts a whole lot of the burden on making sure the compiler is really, really right.  I'm not sure how good an idea this is.)
 
@@ -903,6 +905,8 @@ Vault (https://vaultproject.io) seems pretty good.
 
 * It's hard to get this stuff right on your own.
 
+Yes, *fine*, Keywhiz (https://square.github.io/keywhiz/).  But then, Java.  Ew.
+
 ----
 
 Securing Inter-component Communication
@@ -952,7 +956,7 @@ This turns out to be a very tricky dance of the environment, the certificate sig
 
 .. note::
 
- How great is it that there's a Unicode Pile Of Poo character?  If only there were a middle finger, I could consolidate my communications to exactly two characters.
+ How great is it that there's a Unicode Pile Of Poo character?  As soon as Unicode 7.0 is widely adopted and everyone has U+1F595, I can consolidate my communications to exactly two characters.
 
 ----
 
@@ -1009,6 +1013,8 @@ There are zillions of ways to do this.
 
 * A configuration management system that looks for convergence to the desired state.
 
+* Some benighted unfortunate reading from a coffee-stained page of faxed instructions from the 1990s.
+
 Ultimately your choice of technologies here is very application-dependent.
 
 ----
@@ -1027,6 +1033,8 @@ Rocket doesn't need docker, but it makes systemd your container-controlling proc
 * Buy me whiskey and I'll tell you what I think of systemd, Lennart Poettering, the speck in your neighbor's eye, et cetera.
 
   * It may take quite a lot of whiskey.
+
+  * Really, *a lot*.
 
 Docker pretty much works.
 
@@ -1076,7 +1084,7 @@ There are a few considerations when using them, which are not all obvious.
 
 * You can leverage the underlying filesystem to help manage some of the issues.
 
-* Prior to Docker 1.9 you needed to do a lot of work to make this actually work like you'd expect it to.  In 1.9 data persistence and limiting data growth became much easier.  Use 1.9+.
+* Prior to Docker 1.8 you needed to do a lot of work to make this actually work like you'd expect it to.  Since then, data persistence and limiting data growth have become much easier.  Use 1.8+.
 
 ----
 
@@ -1085,7 +1093,7 @@ Multi-container applications
 
 More to keep track of than an app that's just a process.
 
-Talking to pretty much anything else has to be treated as an off-box call.
+Talking to pretty much anything outside your process has to be treated as an off-box call.
 
 * To some degree, "it depends" :raw-role:`&mdash;` if you've installed your app atop a fairly full distribution, than you can still shell out to external programs or pipe through sed or whatever if you really want to.
 
@@ -1093,12 +1101,14 @@ Talking to pretty much anything else has to be treated as an off-box call.
 
 * These days, RPC is typically a message sent over https, for most things.  Sun RPC is, thankfully, very seldom seen anymore.
 
+If you treat everything as living a TCP connection away, then you don't care where it's hosted, as long as you know how to get there.  That's easy with linked Docker containers, but once you're running on more than one Docker host...
+
 ----
 
 Multi-container networking
 ##########################
 
-The networking is going to be weird:
+Networking gets weird fast with multiple Docker hosts:
 
 * A Docker network is generally just a virtual network segment only visible to Docker and its guests...
 
