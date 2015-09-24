@@ -6,11 +6,11 @@
 
 ..  Swap that in if you want the dark-background version
 
-:title: Containerization of Multi-component applications
+:title: Containers For Curmudgeons
 :author: Adam Thornton
 
-Containerization for Curmudgeons
-##################################
+Containers for Curmudgeons
+##########################
 
 Adam Thornton
 =============
