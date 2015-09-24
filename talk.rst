@@ -1124,6 +1124,23 @@ Networking gets weird fast with multiple Docker hosts:
 
 ----
 
+Orchestrating Multiple Containers
+#################################
+
+Ummm, yeah.  You have a lot of options and I don't think there's a clear general-purpose best bet yet.
+
+* Fleet
+
+* Kubernetes
+
+* Mesos + Marathon
+
+* Docker Swarm
+
+This space is still pretty immature.  Like workflow orchestration, this is one where I think the right answer depends very strongly on your specific application.
+
+----
+
 Questions?
 ##########
 
