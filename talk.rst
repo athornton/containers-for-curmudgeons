@@ -25,6 +25,9 @@ athornton@gmail.com
 .. role:: raw-role(raw)
     :format: html
 
+.. role:: strike
+    :class: strike
+
 Some Basics
 ###########
 
@@ -447,7 +450,7 @@ Crack-Addled Gibbon
 .. image:: images/rob_ford_crack.jpg
    :height: 600px
 
-Nope, that's Rob Ford, former (-and perhaps future-) mayor of Toronto.  Getting warmer, though.
+Nope, that's Rob Ford, former :strike:`(and perhaps future)` mayor of Toronto.  Getting warmer, though.
 
 ----
 
