@@ -6,6 +6,8 @@
 
 ..  Swap that in if you want the dark-background version
 
+..  This is the prod branch.
+
 :title: Containers For Curmudgeons
 :author: Adam Thornton
 
